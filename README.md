@@ -1,4 +1,4 @@
 # lab
 
-#initial - basic pre-processing
-#TST - tail suspension
+initial - basic pre-processing
+TST - tail suspension
