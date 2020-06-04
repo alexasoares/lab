@@ -6,7 +6,7 @@ function data = subtractReferenceAndSave(df_f0, directory, filename, DIO)
   commaHeader = commaHeader(:)';
   textHeader = cell2mat(commaHeader);
   textHeader = textHeader(1:end-1);
-  filename_w = strcat(directory,'\','PROCESSED_', filename); %so basically all it does is to take the raw data and saves the corrected signal with a filename preceded by "processed_" (to avoid overwriting the original file... and the other function calls for that
+  filename_w = strcat(directory,'\Processed\','PROCESSED_', filename); %so basically all it does is to take the raw data and saves the corrected signal with a filename preceded by "processed_" (to avoid overwriting the original file... and the other function calls for that
   fid = fopen(filename_w,'w'); 
   fprintf(fid,'%s\n',textHeader);
   fclose(fid);

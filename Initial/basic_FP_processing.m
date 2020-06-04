@@ -1,13 +1,19 @@
-%%trim the raw data and batch calculate df/f0 
+%% Basic Processing
+%%trim the raw data and batch calculate df/f0 (starting at the beginning of
+%%the file)
 
 clc
 clear all;
 close all;
 
 
-%% Change this directory to the folder containing your raw doric files!
-directory = 'C:\Users\alexa\Google Drive\Grad School\Piciotto Lab\Projects\Sensor FP ReAnalyze\Data\TST NE\To Run';
+%% CHANGE this directory to the folder containing your raw doric files!
+directory = 'C:\Users\alexa\Google Drive\Grad School\Piciotto Lab\Projects\Sensor FP ReAnalyze\Data\LDT NE\To Run';
 files = dir(directory);
+
+%make a folder to store the new processed files
+pdir = [directory, '\Processed'];
+mkdir(pdir);
 
 for file = files'
   
@@ -19,7 +25,7 @@ for file = files'
   end
   
   allData = csvread([directory,'\' filename],2,0); % 1: skip first two lines (header); might need to skip more depeding how the file is formatted but basically the goal is to scrap the headers.
-  trash = find(allData(:,1) > 0.1, 1)
+  trash = find(allData(:,1) > 0.1, 1);
   data = allData(trash:end, :); %first 100ms are noise from starting up LEDs
   
   DF_F0 = calculateDF_F0(data);

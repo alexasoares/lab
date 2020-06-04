@@ -1,14 +1,19 @@
+%% Basic Processing - 1Start
 %%trim the raw data and batch calculate df/f0, starting at the first DIO 1
-%%pulse
+%%pulse; store all the processed files in a new folder
 
 clc
 clear all;
 close all;
 
 
-%% Change this directory to the folder containing your raw doric files!
-directory = 'C:\Users\alexa\Google Drive\Grad School\Piciotto Lab\Projects\Sensor FP ReAnalyze\Data\TST NE\To Run';
+%% CHANGE this directory to the folder containing your raw doric files!
+directory = 'C:\Users\alexa\Google Drive\Grad School\Piciotto Lab\Projects\Sensor FP ReAnalyze\Data\LDT NE\To Run';
 files = dir(directory);
+
+%make a folder to store the processed files in
+pdir = [directory, '\Processed'];
+mkdir(pdir);
 
 for file = files'
   
